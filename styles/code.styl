@@ -1,3 +1,5 @@
+@require './config'
+
 .content
   code
     color lighten($textColor, 20%)
@@ -6,11 +8,6 @@
     font-size 0.85em
     background-color rgba(27,31,35,0.05)
     border-radius 3px
-    .token
-      &.deleted
-        color #EC5975
-      &.inserted
-        color $accentColor
 
 .content
   pre, pre[class*="language-"]
@@ -130,6 +127,3 @@ div[class~="language-python"]:before
 
 div[class~="language-bash"]:before
   content "sh"
-
-div[class~="language-php"]:before
-  content "php"
