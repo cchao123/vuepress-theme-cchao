@@ -44,12 +44,12 @@ import Comments from "./Comments.vue";
 
 export default {
   props: ["sidebarItems"],
-  data () {
+  data() {
     return {
-      viewComments: 'Comments'
-    }
+      viewComments: "Comments"
+    };
   },
-  components: { ArticleWrap , Comments},
+  components: { ArticleWrap, Comments },
 
   computed: {
     lastUpdated() {
@@ -186,6 +186,7 @@ function find(page, items, offset) {
 }
 
 .page-edit {
+  background #fff
   @extend $wrapper;
   padding-top: 1rem;
   padding-bottom: 1rem;

@@ -142,10 +142,11 @@ export default {
           margin-top 0
           padding-top 0
         h4, & > a
-          font-size 15px
+          font-size 12px
           line-height 2rem
+          border-left 1px dashed #e7e7e9
         .dropdown-subitem
-          font-size 14px
+          font-size 12px
           padding-left 1rem
 
 @media (min-width: $MQMobile)

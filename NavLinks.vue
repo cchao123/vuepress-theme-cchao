@@ -106,6 +106,7 @@ export default {
 
     &:hover, &.router-link-active {
       color: $accentColor;
+      color #959dae
     }
   }
 
@@ -114,7 +115,6 @@ export default {
     display: inline-block;
     margin-left: 1.5rem;
     line-height: 2rem;
-
     &:first-child {
       margin-left: 0;
     }
@@ -129,6 +129,16 @@ export default {
   .nav-links {
     .nav-item, .repo-link {
       margin-left: 0;
+    }
+    .nav-item {
+      width: 100%;
+      line-height: 1.25rem;
+      border-bottom 1px dashed #e7e7e9;
+    }
+    a {
+      font-size 12px
+      font-weight normal!important
+      color #565656
     }
   }
 }

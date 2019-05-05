@@ -7,7 +7,21 @@
           src="https://mllj2j8xvfl0.i.optimole.com/w:180/h:180/q:90/https://s20206.pcdn.co/wp-content/uploads/sites/60/2015/11/black-and-white-man-person-musician.jpg"
           alt
         >
-        <div class="card-title" slot="card-title">About Me</div>
+        <!-- <div class="card-title" slot="card-title">About Me</div> -->
+        <div class="author-info">
+          <div class="info-item">
+            <i class="iconfont iconwenzhang"></i>
+            <CountUp startNum="0" endNum="10" times="10" speed="50" />
+          </div>
+          <div class="info-item">
+            <i class="iconfont iconwenjianjia"></i>
+            <CountUp startNum="0" endNum="5" times="10" speed="50" />
+          </div>
+          <div class="info-item">
+            <i class="iconfont icontag"></i>
+            <CountUp startNum="0" endNum="2" times="10" speed="50" />
+          </div>
+        </div>
       </div>
     </div>
   </article-card>
@@ -15,9 +29,22 @@
 
 <script>
 import ArticleCard from "./ArticleCard.vue";
-
+import CountUp from './CountUp';
 export default {
-  components: { ArticleCard }
+  components: { ArticleCard , CountUp},
+  computed: {
+    options () {
+      return {
+        useEasing: true,
+        useGrouping: true,
+        separator: '',
+        decimal: '.',
+        decimalPlaces: '',
+        prefix: '',
+        suffix: ''
+      }
+    }
+  }
 };
 </script>
 
@@ -34,6 +61,29 @@ export default {
 
     &:hover {
       transform: rotate(360deg);
+    }
+  }
+}
+
+.author-info {
+  cursor pointer
+  display flex
+  .info-item {
+    &:nth-child(1) {
+      border 0
+    }
+    border-left 1px dashed #e0e0e0
+    text-align center
+    flex 1
+    display flex
+    flex-direction column
+    justify-content center
+    i {
+      font-size 20px
+    }
+    span {
+      font-size 10px
+      justify-content center
     }
   }
 }
