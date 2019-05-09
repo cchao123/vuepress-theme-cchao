@@ -75,17 +75,17 @@ a.sidebar-link
   width: 100%
   box-sizing: border-box
   &:hover
-    color $accentColor
-  &.active
-    font-weight 600
-    color $accentColor
-    border-left-color $accentColor
-  .sidebar-group &
-    padding-left 2rem
-  .sidebar-sub-headers &
-    padding-top 0.25rem
-    padding-bottom 0.25rem
-    border-left none
-    &.active
-      font-weight 500
+    // color $accentColor
+  // &.active
+  //   font-weight 600
+  //   color $accentColor
+  //   border-left-color $accentColor
+  // .sidebar-group &
+  //   padding-left 2rem
+  // .sidebar-sub-headers &
+  //   padding-top 0.25rem
+  //   padding-bottom 0.25rem
+  //   border-left none
+  //   &.active
+  //     font-weight 500
 </style>

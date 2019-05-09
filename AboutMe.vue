@@ -4,23 +4,26 @@
       <div class="author">
         <img
           class="author-head"
-          src="https://mllj2j8xvfl0.i.optimole.com/w:180/h:180/q:90/https://s20206.pcdn.co/wp-content/uploads/sites/60/2015/11/black-and-white-man-person-musician.jpg"
+          src="https://avatars1.githubusercontent.com/u/24643401?s=460&v=4"
           alt
         >
         <!-- <div class="card-title" slot="card-title">About Me</div> -->
         <div class="author-info">
           <div class="info-item">
             <i class="iconfont iconwenzhang"></i>
-            <CountUp startNum="0" endNum="10" times="10" speed="50" />
+            <CountUp startNum="0" :endNum="postsNum" times="10" speed="50" />
           </div>
-          <div class="info-item">
+          <!-- <div class="info-item">
             <i class="iconfont iconwenjianjia"></i>
-            <CountUp startNum="0" endNum="5" times="10" speed="50" />
-          </div>
+            <CountUp startNum="0" :endNum="classNum" times="10" speed="50" />
+          </div> -->
           <div class="info-item">
             <i class="iconfont icontag"></i>
-            <CountUp startNum="0" endNum="2" times="10" speed="50" />
+            <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50" />
           </div>
+        </div>
+        <div style="text-align:center;margin-top:15px">
+          A web programmer 👨🏽‍💻
         </div>
       </div>
     </div>
@@ -31,7 +34,21 @@
 import ArticleCard from "./ArticleCard.vue";
 import CountUp from './CountUp';
 export default {
-  components: { ArticleCard , CountUp},
+  props: {
+    postsNum: {
+      type: Number,
+      default: 0
+    },
+    classNum: {
+      type: Number,
+      default: 0
+    },
+    tagsNum: {
+      type: Number,
+      default: 0
+    }
+  },
+  components: { ArticleCard , CountUp },
   computed: {
     options () {
       return {
@@ -51,6 +68,8 @@ export default {
 <style lang="stylus" scoped>
 .author {
   .author-head {
+    width 192px
+    height 192px
     transition: 0.5s;
     display: table;
     margin: -120px auto 30px;

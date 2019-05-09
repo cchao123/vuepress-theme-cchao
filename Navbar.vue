@@ -10,6 +10,12 @@
           :src="$withBase($site.themeConfig.logo)"
           :alt="$siteTitle"
         >
+        <span
+          ref="siteName"
+          class="site-name"
+          v-else
+          :class="{ 'can-hide': $site.themeConfig.logo }"
+        >{{ $siteTitle }}</span>
         <!-- <span
           ref="siteName"
           class="site-name"
@@ -130,6 +136,13 @@ $navbar-horizontal-padding = 1.5rem;
 
     .nav-links {
       flex: 1;
+      .nav-item {
+        a {
+          font-size 12px
+          letter-spacing 2px
+          font-weight normal
+        }
+      }
     }
   }
 }

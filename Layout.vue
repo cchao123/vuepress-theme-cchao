@@ -55,7 +55,7 @@
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
 
 
-    <div @click="goTop" class="goTop iconfont iconshang">{{ scrollTop }}</div>
+    <div @click="goTop" class="goTop iconfont iconicon-test">{{ scrollTop }}</div>
   </div>
 </template>
 

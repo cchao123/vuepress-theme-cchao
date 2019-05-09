@@ -114,7 +114,7 @@ export default {
     position: relative;
     display: inline-block;
     margin-left: 1.5rem;
-    line-height: 2rem;
+    // line-height: 2rem;
     &:first-child {
       margin-left: 0;
     }
