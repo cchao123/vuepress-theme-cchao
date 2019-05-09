@@ -6,20 +6,19 @@ _/ ___\/ ___\|  |  \\__  \  /  _ \
  \___  >___  >___|  (____  /\____/
      \/    \/     \/     \/
  ```
- -[相关依赖：](./README/zh.md)
-你必须做的一件事：
-📁在docs下创建`posts`文件夹来存放你的文章(首页只会渲染此文件夹下的文章)
+ ### [相关依赖：](./README/zh.md)
+
+### you must to do：
+> 📁Create a `posts'folder under docs to store your articles(Home page only renders articles under this folder)
 
 ```
 ---
-title: 此文章的标题
-headimg: 'url'       文章图片(非必填)
-date: 2019/4/25      文章日期(非必填)
-description: 描述    文章描述(非必填)
-tags:                文章标签(非必填)
+title: title
+headimg: 'url'
+date: 2019/4/25
+description: description
+tags
   - node
-  - 工具
+  - js
 ---
-
-
 ```
