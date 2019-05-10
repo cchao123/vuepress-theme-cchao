@@ -57,20 +57,18 @@
 <script>
 import Pagination from "./Pagination.vue";
 import AboutMe from "./AboutMe.vue";
-import HotArticlee from "./AboutMe.vue";
 import Categories from "./Categories.vue";
 import Tags from "./Tags.vue";
 import Search from "./Search.vue";
 
 import FollowMe from "./FollowMe.vue";
-import { formatTime } from "./date.js";
-import { resolveSidebarItems } from "./util";
+import { formatTime } from "./../util/date.js";
+import { resolveSidebarItems } from "./../util/util";
 
 export default {
   components: {
     Pagination,
     AboutMe,
-    HotArticlee,
     Categories,
     Tags,
     FollowMe,
@@ -165,7 +163,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
+@import './../styles/config.styl';
 
 .content {
   background: #fff;

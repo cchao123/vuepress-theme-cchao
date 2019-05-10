@@ -62,15 +62,13 @@
 <script>
 import Vue from 'vue'
 import nprogress from 'nprogress'
-import Home from './Home.vue'
-import TagsLayout from './TagsLayout.vue'
-import Navbar from './Navbar.vue'
-import Page from './Page.vue'
-import Sidebar from './Sidebar.vue'
-import SWUpdatePopup from './SWUpdatePopup.vue'
-import { resolveSidebarItems } from './util'
-//at.alicdn.com/t/font_1162703_iuucvxiz6l.js
-
+import Home from './components/Home.vue'
+import TagsLayout from './components/TagsLayout.vue'
+import Navbar from './components/Navbar.vue'
+import Page from './components/Page.vue'
+import Sidebar from './components/Sidebar.vue'
+import SWUpdatePopup from './components/SWUpdatePopup.vue'
+import { resolveSidebarItems } from './util/util'
 
 export default {
 
