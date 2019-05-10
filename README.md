@@ -6,7 +6,7 @@
 |___/\__,_/\___/ .___/_/   \___/____/____/     \__/_/ /_/\___/_/ /_/ /_/\___/     \___/\___/_/ /_/\__,_/\____/
               /_/
  ```
- ### [中文文档](./README-zh.md)
+### [中文文档](./README-zh.md)
 
 ### you must to do：
 > 📁Create a `posts'folder under docs to store your articles(Home page only renders articles under this folder)
