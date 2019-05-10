@@ -8,7 +8,7 @@
  ```
 ### [中文文档](./README-zh.md)
 
-### you must to do：
+### One thing you have to do：
 > 📁Create a `posts'folder under docs to store your articles(Home page only renders articles under this folder)
 
 ```
