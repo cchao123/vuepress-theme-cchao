@@ -7,7 +7,7 @@
           <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
           <div class="article-item">
             <h3 class="article-title">
-              <router-link :to="item.path">{{ item.title }}</router-link>
+              <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
             </h3>
             <div class="article-date">
               <i class="iconfont iconrili"></i>

@@ -97,6 +97,10 @@ export default {
       border-bottom: 1px dashed #e7e7e9;
       color #565656
       line-height 1.7rem
+      &:last-child {
+        border 0 dashed  #e7e7e9;
+      }
+
       h4
         margin 0.45rem 0 0
         border-top 1px solid #eee

@@ -53,6 +53,7 @@ export default {
       color inherit
 
 .sidebar-heading
+  position relative
   color #999
   transition color .15s ease
   cursor pointer
@@ -62,6 +63,16 @@ export default {
   padding 0 1.5rem
   margin-top 0
   margin-bottom 0.5rem
+  &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    margin-top: -4px;
+    width: 6px;
+    height: 6px;
+    background-color: currentColor;
+  }
   &.open, &:hover
     color inherit
   .arrow
