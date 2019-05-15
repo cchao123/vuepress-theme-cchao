@@ -4,7 +4,11 @@
       <!-- <div style="position:">#TAGS</div> -->
       <template v-for="item in currentPost">
         <template>
-          <div v-if="item.frontmatter.headimg" class="article-headimg" :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"></div>
+          <div
+            v-if="item.frontmatter.headimg"
+            class="article-headimg"
+            :style="{backgroundImage: `url(${item.frontmatter.headimg})`}"
+          ></div>
           <div class="article-item">
             <h3 class="article-title">
               <router-link :to="item.frontmatter.link || item.path">{{ item.title }}</router-link>
@@ -23,7 +27,7 @@
             <!-- <div class="article-tag" v-if="item.frontmatter.tags">
           <span v-for="tag in item.frontmatter.tags">{{ tag }}</span>
             </div>-->
-            <div class="article-more">READ MORE</div>
+            <div class="article-more" @click="goDetail(item)">READ MORE</div>
           </div>
         </template>
       </template>
@@ -42,12 +46,11 @@
     <!-- 侧边栏 -->
     <div class="article-aside">
       <!-- 关于作者 -->
-      <AboutMe :tagsNum="tags.length" :postsNum="postsArr.length"/>
+      <AboutMe v-show="!$page.frontmatter.hideInfo" />
       <!-- <FollowMe/> -->
+      <Search />
       <!-- 标签分类 -->
-      <Tags :tags="tags" @tag-fillter="tagFillter" />
-      <Search/>
-
+      <Tags :tags="tags" @tag-fillter="tagFillter" v-if="tagShow"/>
       <Categories :categories="sidebarItems"/>
       <!-- <Sidebar /> -->
     </div>
@@ -82,6 +85,7 @@ export default {
   },
   data() {
     return {
+      isFirst: true,
       tags: [],
       postsArr: [], // 文章列表
       currentPage: 1,
@@ -89,6 +93,9 @@ export default {
     };
   },
   computed: {
+    tagShow() {
+      return this.$route.path === "/";
+    },
     sidebarItems() {
       return resolveSidebarItems(
         this.$page,
@@ -119,25 +126,31 @@ export default {
     this.getPosts();
   },
   methods: {
+    goDetail(item) {
+      var path = item.frontmatter.link || item.path;
+      this.$router.push(path);
+    },
     // 标签筛选
-    tagFillter (tagItem) {
-      this.postsArr = []
+    tagFillter(tagItem) {
+      this.currentPage = 1;
+      this.postsArr = [];
       if (!tagItem) {
         this.posts.map((postItem, ind) => {
           if (/posts/.test(postItem.path)) {
-            this.postsArr.push(postItem)
+            this.postsArr.push(postItem);
           }
         });
-        return false
+        return false;
       }
-      this.postsArr = []
+      this.postsArr = [];
       this.posts.map((postItem, ind) => {
         if (/posts/.test(postItem.path) && postItem.frontmatter.tags) {
           if (postItem.frontmatter.tags.indexOf(tagItem) != -1) {
-            this.postsArr.push(postItem)
+            this.postsArr.push(postItem);
           }
         }
       });
+      this.$emit("toast-show", this.postsArr.length);
     },
     // 收集文章并
     getPosts() {
@@ -154,6 +167,10 @@ export default {
           // console.log(postItem.lastUpdated)
         }
       });
+      if (!sessionStorage.getItem('postsNum')) {
+        sessionStorage.setItem('postsNum', this.postsArr.length)
+        sessionStorage.setItem('tagsNum', this.tags.length)
+      }
     },
     handleCurrentChange(val) {
       this.currentPage = val;
@@ -183,7 +200,7 @@ export default {
     width: 100%;
 
     .article-headimg {
-      background-color #959dae
+      background-color: #959dae;
       widht: 100%;
       height: 15rem;
       border-top-left-radius: 8px;

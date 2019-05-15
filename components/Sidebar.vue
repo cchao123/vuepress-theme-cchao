@@ -16,6 +16,7 @@
         <SidebarLink v-else :item="item"/>
       </li>
     </ul>
+    <Categories v-else :categories="sidebarItems"/>
     <slot name="bottom"/>
   </div>
 </template>
@@ -24,10 +25,12 @@
 import SidebarGroup from './SidebarGroup.vue'
 import SidebarLink from './SidebarLink.vue'
 import NavLinks from './NavLinks.vue'
+import Categories from './Categories.vue'
 import { isActive } from './../util/util'
+import { resolveSidebarItems } from "./../util/util";
 
 export default {
-  components: { SidebarGroup, SidebarLink, NavLinks },
+  components: { SidebarGroup, SidebarLink, NavLinks, Categories},
 
   props: ['items'],
 
@@ -46,7 +49,16 @@ export default {
       this.refreshIndex()
     }
   },
-
+  computed: {
+    sidebarItems() {
+      return resolveSidebarItems(
+        this.$page,
+        this.$route,
+        this.$site,
+        this.$localePath
+      );
+    }
+  },
   methods: {
     refreshIndex () {
       const index = resolveOpenGroupIndex(

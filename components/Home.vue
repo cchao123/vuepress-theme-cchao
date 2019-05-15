@@ -13,18 +13,21 @@
       </div>
     </div>
 
-    <ArticleWrap :posts="this.$site.pages" />
+    <ArticleWrap :posts="this.$site.pages" @toast-show="toastShow" />
     <Content custom/>
 
     <div class="footer" v-if="data.footer">{{ data.footer }}</div>
+    <Toast ref="Toast" />
   </div>
 </template>
 
 <script>
 import NavLink from "./NavLink.vue";
 import ArticleWrap from "./ArticleWrap.vue";
+import Toast from './Toast'
+
 export default {
-  components: { NavLink, ArticleWrap },
+  components: { NavLink, ArticleWrap, Toast },
 
   computed: {
 
@@ -38,7 +41,12 @@ export default {
         text: this.data.actionText
       };
     }
-  }
+  },
+  methods: {
+    toastShow (lenght) {
+      this.$refs.Toast.show(`共筛选出${lenght}条`)
+    }
+  },
 };
 </script>
 

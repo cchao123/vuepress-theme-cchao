@@ -4,8 +4,8 @@
       <div class="author">
         <img
           class="author-head"
-          src="https://avatars1.githubusercontent.com/u/24643401?s=460&v=4"
-          alt
+          :src="$page.frontmatter.head || 'https://user-gold-cdn.xitu.io/2019/5/15/16aba753c5c2e3b5?w=406&h=392&f=gif&s=155219'"
+          alt="headimg"
         >
         <!-- <div class="card-title" slot="card-title">About Me</div> -->
         <div class="author-info">
@@ -34,21 +34,33 @@
 import ArticleCard from "./ArticleCard.vue";
 import CountUp from './CountUp';
 export default {
-  props: {
-    postsNum: {
-      type: Number,
-      default: 0
-    },
-    classNum: {
-      type: Number,
-      default: 0
-    },
-    tagsNum: {
-      type: Number,
-      default: 0
+  // props: {
+  //   postsNum: {
+  //     type: Number,
+  //     default: 0
+  //   },
+  //   classNum: {
+  //     type: Number,
+  //     default: 0
+  //   },
+  //   tagsNum: {
+  //     type: Number,
+  //     default: 0
+  //   }
+  // },
+  data () {
+    return {
+      postsNum: 0,
+      tagsNum: 0
     }
   },
   components: { ArticleCard , CountUp },
+  mounted() {
+    setTimeout(() => {
+      this.postsNum = sessionStorage.getItem('postsNum')
+      this.tagsNum = sessionStorage.getItem('tagsNum')
+    }, 0);
+  },
   computed: {
     options () {
       return {

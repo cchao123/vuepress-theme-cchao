@@ -28,6 +28,7 @@
     <SWUpdatePopup :updateEvent="swUpdateEvent"/>
 
     <div v-show="isShowGotoTop" @click="goTop" class="goTop iconfont iconicon-test"></div>
+
   </div>
 </template>
 
@@ -41,9 +42,8 @@ import Page from "./components/Page.vue";
 import Sidebar from "./components/Sidebar.vue";
 import SWUpdatePopup from "./components/SWUpdatePopup.vue";
 import { resolveSidebarItems } from "./util/util";
-
 export default {
-  components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, TagsLayout },
+  components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, TagsLayout},
 
   data() {
     return {
@@ -61,7 +61,8 @@ export default {
           top += e.offsetHeight;
         });
         top += len * 20; // length * margin
-        if (val >= top && document.querySelector(".categories")) {
+        if (val >= top && document.querySelector(".categories")
+        && !(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
           document.querySelector(".categories").className += " ca-fixed";
         } else {
           if (document.querySelector(".categories"))

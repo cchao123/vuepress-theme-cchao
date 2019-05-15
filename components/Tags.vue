@@ -2,10 +2,12 @@
   <article-card>
     <div class="card-title" slot="card-title">
       <span>TAGS </span>
-      <i class="iconfont iconqinglihuancun" @click="clearTags"></i>
+      <!-- <i v-show="this.tagItem !== ''" class="iconfont iconqinglihuancun" @click="clearTags"></i> -->
     </div>
     <div class="card-content tags-content" slot="card-content">
-      <span :class="tagItem === item ? 'tags-item tags-active' : 'tags-item' " v-for="item in tags" @click="tagFillter(item)"># {{ item }}</span>
+      <span :class="tagItem === item ? 'tags-item tags-active' : 'tags-item' " v-for="item in tags" @click="tagFillter(item)"># {{ item }}
+        <i v-show="tagItem === item" @click.stop="clearTags">&times;</i>
+      </span>
     </div>
   </article-card>
 </template>
@@ -42,13 +44,19 @@ export default {
 };
 </script>
 <style lang="stylus">
+.iconqinglihuancun
+  cursor pointer
+  font-size 20px!important
+
 .tags-content
+  cursor pointer
   display flex
   flex-wrap wrap
   justify-content space-between
   // justify-content space-around
   justify-content space-around
   .tags-item
+    position relative
     font-size 12px
     color #fff
     margin 5px
@@ -57,6 +65,17 @@ export default {
     background-color rgb(170, 170, 170)
     transition .5s
     border-radius 3px
+    i
+      position absolute
+      font-size 14px
+      right -5px
+      top -5px
+      width 12px
+      height 12px
+      border-radius 50%
+      text-align center
+      line-height 12px
+      background-color rgb(44,62,80)
     &:hover
       background-color rgb(44,62,80)
   .tags-active
