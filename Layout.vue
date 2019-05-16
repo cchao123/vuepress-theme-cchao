@@ -62,11 +62,11 @@ export default {
         });
         top += len * 20; // length * margin
         if (val >= top && document.querySelector(".categories")
-        && !(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
-          document.querySelector(".categories").className += " ca-fixed";
+&& !(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+          document.querySelectorAll(".categories")[1].className += " ca-fixed";
         } else {
-          if (document.querySelector(".categories"))
-            document.querySelector(".categories").className = "categories";
+          if (document.querySelectorAll(".categories")[1])
+            document.querySelectorAll(".categories")[1].className = "categories";
         }
       }
     }

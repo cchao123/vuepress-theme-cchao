@@ -95,6 +95,7 @@ function resolveOpenGroupIndex (route, items) {
 @import './../styles/config.styl'
 
 .sidebar
+    overflow-x hidden
     display none
     padding 0
     margin 0

@@ -22,8 +22,8 @@
             <CountUp startNum="0" :endNum="tagsNum" times="10" speed="50" />
           </div>
         </div>
-        <div style="text-align:center;margin-top:15px">
-          A web programmer 👨🏽‍💻
+        <div v-if="$page.frontmatter.introduction" class="introduction">
+          {{ $page.frontmatter.introduction }}
         </div>
       </div>
     </div>
@@ -94,6 +94,11 @@ export default {
       transform: rotate(360deg);
     }
   }
+}
+
+.introduction {
+  text-align: center;
+  margin-top: 15px;
 }
 
 .author-info {
