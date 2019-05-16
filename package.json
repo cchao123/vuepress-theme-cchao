@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-cchao",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "🚀A Simple Theme for Vuepress",
   "main": "index.js",
   "scripts": {
